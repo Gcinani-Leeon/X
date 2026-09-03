@@ -1,1 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A one-card carousel of six black Dynamic-Island widgets driven by real CSS scroll-snap — drag the track or step with the arrows, and the browser decides exactly where it lands.">
+    <title>Scroll Snap Carousel</title>
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="ss-carousel" aria-label="Dynamic Island widget carousel">
+        <div class="ss-frame">
+            <!-- CAROUSEL — arrow · stage · arrow -->
+            <div class="ss-stage-row">
 
+                <button class="ss-nav-btn" type="button" id="ss-btn-prev" aria-label="Previous card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6l6 6"/></svg>
+                </button>
+
+                <div class="ss-stage" id="ss-stage">
+
+                    <div class="ss-track" id="ss-track" tabindex="0" role="group" aria-label="Horizontally snapping card track">
+                        <!-- 01 · Now Playing -->
+                        <article class="ss-card" data-idx="0" style="--hue:var(--ss-c-music)">
+                            <div class="ss-card__skel" aria-hidden="true">
+                                <div class="ss-skel-widget">
+                                    <span class="ss-skel ss-skel-art"></span>
+                                    <div class="ss-skel-col ss-skel-main">
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 9);--h:calc(var(--ss-u) * 1.05)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 16);--h:calc(var(--ss-u) * 1.7)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 12);--h:calc(var(--ss-u) * 1.1)"></span>
+                                        <span class="ss-skel" style="--h:calc(var(--ss-u) * 0.45)"></span>
+                                    </div>
+                                    <div class="ss-skel-eq">
+                                        <span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ss-widget ss-widget--music">
+                                <div class="ss-art" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M13 17a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"/><path d="M9 17v-13h10v13"/><path d="M9 8h10"/></svg>
+                                </div>
+                                <div class="ss-w-col ss-music-main">
+                                    <span class="ss-w-label">Now Playing</span>
+                                    <span class="ss-w-title">Midnight Drive</span>
+                                    <span class="ss-w-sub">Neon Coast</span>
+                                    <div class="ss-music-progress" aria-hidden="true"><i style="--p:68%"></i></div>
+                                    <div class="ss-music-time" aria-hidden="true"><span>2:41</span><span>&minus;1:15</span></div>
+                                </div>
+                                <div class="ss-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                            </div>
+                        </article>
+                        <!-- 02 · Timer -->
+                        <article class="ss-card" data-idx="1" style="--hue:var(--ss-c-timer)">
+                            <div class="ss-card__skel" aria-hidden="true">
+                                <div class="ss-skel-widget">
+                                    <span class="ss-skel ss-skel--ring ss-skel-ring-lg"></span>
+                                    <div class="ss-skel-col">
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 6);--h:calc(var(--ss-u) * 1.05)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 12);--h:calc(var(--ss-u) * 1.7)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 10);--h:calc(var(--ss-u) * 1.1)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 16);--h:calc(var(--ss-u) * 2.8);--r:calc(var(--ss-u) * 1.2)"></span>
+                                    </div>
+                                    <span class="ss-skel ss-skel--circle ss-skel-chip"></span>
+                                </div>
+                            </div>
+                            <div class="ss-widget ss-widget--timer">
+                                <div class="ss-ring" style="--p:65" aria-hidden="true"><span class="ss-ring__val">12:45</span></div>
+                                <div class="ss-w-col">
+                                    <span class="ss-w-label">Timer</span>
+                                    <span class="ss-w-title">Focus</span>
+                                    <span class="ss-w-sub">ends at 14:30</span>
+                                    <div class="ss-sub-panel ss-sub-panel--row" aria-hidden="true">
+                                        <span class="ss-sp-cap">Up next</span>
+                                        <span class="ss-sp-val">Break</span>
+                                    </div>
+                                </div>
+                                <span class="ss-w-chip" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/><path d="M14 5m0 1a1 1 0 0 1 1 -1h2a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-2a1 1 0 0 1 -1 -1z"/></svg>
+                                </span>
+                            </div>
+                        </article>
+                        <!-- 03 · Activity -->
+                        <article class="ss-card" data-idx="2" style="--hue:var(--ss-c-activity)">
+                            <div class="ss-card__skel" aria-hidden="true">
+                                <div class="ss-skel-widget ss-skel-widget--activity">
+                                    <div class="ss-skel-col">
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 8);--h:calc(var(--ss-u) * 1.05)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 11);--h:calc(var(--ss-u) * 2.9)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 12);--h:calc(var(--ss-u) * 1.1)"></span>
+                                    </div>
+                                    <div class="ss-skel-tri">
+                                        <div><span class="ss-skel ss-skel--ring ss-skel-mini"></span><span class="ss-skel" style="--w:calc(var(--ss-u) * 3);--h:calc(var(--ss-u) * 0.9)"></span></div>
+                                        <div><span class="ss-skel ss-skel--ring ss-skel-mini"></span><span class="ss-skel" style="--w:calc(var(--ss-u) * 3);--h:calc(var(--ss-u) * 0.9)"></span></div>
+                                        <div><span class="ss-skel ss-skel--ring ss-skel-mini"></span><span class="ss-skel" style="--w:calc(var(--ss-u) * 3);--h:calc(var(--ss-u) * 0.9)"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ss-widget ss-widget--activity">
+                                <div class="ss-w-col">
+                                    <span class="ss-w-label">Activity</span>
+                                    <span class="ss-w-value">428<small>kcal</small></span>
+                                    <span class="ss-w-sub">Move goal 71%</span>
+                                </div>
+                                <div class="ss-tri-rings" aria-hidden="true">
+                                    <div class="ss-tri"><span class="ss-mini-ring" style="--p:92;--rc:var(--ss-c-activity)"></span><span class="ss-tri__lbl" style="--rc:var(--ss-c-activity)">Move</span></div>
+                                    <div class="ss-tri"><span class="ss-mini-ring" style="--p:64;--rc:var(--ss-c-battery)"></span><span class="ss-tri__lbl" style="--rc:var(--ss-c-battery)">Exer</span></div>
+                                    <div class="ss-tri"><span class="ss-mini-ring" style="--p:38;--rc:var(--ss-c-timer)"></span><span class="ss-tri__lbl" style="--rc:var(--ss-c-timer)">Stand</span></div>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- 04 · Weather -->
+                        <article class="ss-card" data-idx="3" style="--hue:var(--ss-c-weather)">
+                            <div class="ss-card__skel" aria-hidden="true">
+                                <div class="ss-skel-widget ss-skel-widget--weather">
+                                    <div class="ss-skel-col">
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 8);--h:calc(var(--ss-u) * 1.05)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 15);--h:calc(var(--ss-u) * 1.1)"></span>
+                                    </div>
+                                    <div class="ss-skel-row">
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 6.5);--h:calc(var(--ss-u) * 3.4)"></span>
+                                        <span class="ss-skel ss-skel--circle" style="--w:calc(var(--ss-u) * 2.6);--h:calc(var(--ss-u) * 2.6)"></span>
+                                    </div>
+                                    <span class="ss-skel ss-skel-chart"></span>
+                                </div>
+                            </div>
+                            <div class="ss-widget ss-widget--weather">
+                                <div class="ss-w-col">
+                                    <span class="ss-w-label">Cupertino</span>
+                                    <span class="ss-w-sub">Partly Cloudy &middot; H:21&deg; L:12&deg;</span>
+                                </div>
+                                <div class="ss-weather-now" aria-hidden="true">
+                                    <span class="ss-weather-temp">18&deg;</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.487 -3.465 3.487h-11.878"/></svg>
+                                </div>
+                                <div class="ss-sub-panel ss-weather-chart" aria-hidden="true">
+                                    <div class="ss-wx-bars">
+                                        <i style="--p:38%;--m:0%"></i><i style="--p:52%;--m:6%"></i><i style="--p:66%;--m:12%"></i><i style="--p:82%;--m:18%"></i><i style="--p:95%;--m:24%"></i><i style="--p:88%;--m:30%"></i><i style="--p:74%;--m:36%"></i><i style="--p:60%;--m:42%"></i><i style="--p:48%;--m:48%"></i><i style="--p:56%;--m:52%"></i><i style="--p:70%;--m:56%"></i><i style="--p:80%;--m:60%"></i>
+                                    </div>
+                                    <div class="ss-wx-times"><span>Now</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span></div>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- 05 · Battery -->
+                        <article class="ss-card" data-idx="4" style="--hue:var(--ss-c-battery)">
+                            <div class="ss-card__skel" aria-hidden="true">
+                                <div class="ss-skel-widget">
+                                    <span class="ss-skel ss-skel--ring ss-skel-batt-ring"></span>
+                                    <div class="ss-skel-col">
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 7);--h:calc(var(--ss-u) * 1.05)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 10);--h:calc(var(--ss-u) * 2.9)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 15);--h:calc(var(--ss-u) * 1.1)"></span>
+                                    </div>
+                                    <span class="ss-skel" style="--w:calc(var(--ss-u) * 13);--h:calc(var(--ss-u) * 5.2);--r:calc(var(--ss-u) * 1.2)"></span>
+                                </div>
+                            </div>
+                            <div class="ss-widget ss-widget--battery">
+                                <div class="ss-batt-ring" style="--p:78" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11"/></svg>
+                                </div>
+                                <div class="ss-w-col">
+                                    <span class="ss-w-label">Battery</span>
+                                    <span class="ss-w-value">78<small>%</small></span>
+                                    <span class="ss-w-sub">41 min left</span>
+                                </div>
+                                <div class="ss-sub-panel ss-dev-list" aria-hidden="true">
+                                    <div class="ss-dev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13m0 2a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2z"/><path d="M15 13m0 2a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v3a2 2 0 0 1 -2 2h-1a2 2 0 0 1 -2 -2z"/><path d="M4 15v-3a8 8 0 0 1 16 0v3"/></svg>
+                                        <span class="ss-dev__name">Buds</span><span class="ss-dev__pct">64%</span>
+                                    </div>
+                                    <div class="ss-dev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a3 3 0 0 1 3 -3h6a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-6a3 3 0 0 1 -3 -3z"/><path d="M9 18v3h6v-3"/><path d="M9 6v-3h6v3"/></svg>
+                                        <span class="ss-dev__name">Watch</span><span class="ss-dev__pct">92%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- 06 · Voice Memo -->
+                        <article class="ss-card" data-idx="5" style="--hue:var(--ss-c-memo)">
+                            <div class="ss-card__skel" aria-hidden="true">
+                                <div class="ss-skel-widget ss-skel-widget--memo">
+                                    <div class="ss-skel-col">
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 9);--h:calc(var(--ss-u) * 1.05)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 14);--h:calc(var(--ss-u) * 1.7)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 10);--h:calc(var(--ss-u) * 1.1)"></span>
+                                    </div>
+                                    <div class="ss-skel-wave">
+                                        <span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span><span class="ss-skel"></span>
+                                    </div>
+                                    <div class="ss-skel-col" style="align-items:center">
+                                        <span class="ss-skel ss-skel--circle" style="--w:calc(var(--ss-u) * 4);--h:calc(var(--ss-u) * 4)"></span>
+                                        <span class="ss-skel" style="--w:calc(var(--ss-u) * 6);--h:calc(var(--ss-u) * 1.6);--r:999px"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ss-widget ss-widget--memo">
+                                <div class="ss-w-col">
+                                    <span class="ss-w-label"><i class="ss-rec-dot" aria-hidden="true"></i>Voice Memo</span>
+                                    <span class="ss-w-title">Recording 7</span>
+                                    <span class="ss-w-sub ss-w-sub--mono">00:42 &middot; 1.2 MB</span>
+                                </div>
+                                <div class="ss-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                                <div class="ss-memo-ctl" aria-hidden="true">
+                                    <span class="ss-ctl-stop"><i class="ss-stop-sq"></i></span>
+                                    <div class="ss-ctl-row">
+                                        <span class="ss-ctl-pill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6a2 2 0 0 1 2 2v14l-5 -3l-5 3v-14a2 2 0 0 1 2 -2"/></svg></span>
+                                        <span class="ss-ctl-pill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+
+                <button class="ss-nav-btn" type="button" id="ss-btn-next" aria-label="Next card">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6"/></svg>
+                </button>
+
+            </div>
+            <!-- STAGE FOOT — a compact island pill holding the pager -->
+            <div class="ss-stage-foot">
+                <div class="ss-foot-island">
+                    <div class="ss-pager" id="ss-pager" role="group" aria-label="Choose a card">
+                        <button class="ss-pager__dot is-active" type="button" aria-label="Go to Now Playing" aria-current="true"></button>
+                        <button class="ss-pager__dot" type="button" aria-label="Go to Timer"></button>
+                        <button class="ss-pager__dot" type="button" aria-label="Go to Activity"></button>
+                        <button class="ss-pager__dot" type="button" aria-label="Go to Weather"></button>
+                        <button class="ss-pager__dot" type="button" aria-label="Go to Battery"></button>
+                        <button class="ss-pager__dot" type="button" aria-label="Go to Voice Memo"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
